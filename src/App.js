@@ -4,16 +4,9 @@ import 'style/test.less'
 function App(props) {
   return (
     <div className="App">
-      {props.children}
-<<<<<<< HEAD
-      {/* <Button></Button> */}
+
       hello world
-      {/* <Button type="danger">
-=======
-      <Button type="danger">
->>>>>>> 037187c5497e524d6f2fc4795a9a4127434e46e6
-          hehe
-      </Button>
+    
       <p>这里是APP</p>
     </div>
   );
