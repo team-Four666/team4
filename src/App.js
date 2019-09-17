@@ -5,10 +5,10 @@ function App(props) {
   return (
     <div className="App">
       {props.children}
-      {/* <Button type="danger">
+      <Button type="danger">
           hehe
-      </Button> */}
-      {/* <p>这里是APP</p> */}
+      </Button>
+      <p>这里是APP</p>
     </div>
   );
 }
