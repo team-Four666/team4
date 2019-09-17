@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 import RootRouter from './router';
 import * as serviceWorker from './serviceWorker';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+//按需引入
+// 
 import axios from 'utils/axios.js'
 
 React.Component.prototype.$axios = axios
