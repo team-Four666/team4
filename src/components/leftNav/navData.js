@@ -12,15 +12,14 @@
      {
       name:'广告位管理',
       key:'2',
-      path:'/admin/food',
+      path:'/admin/ad',
    },
    {
       name:'购物车管理',
       key:'3',
-      path:'/admin/food',
+      path:'/admin/cart',
    },
-   
-     {
+    {
         name:'数据统计',
         key:'4', 
         path:'/admin/echarts',
@@ -36,7 +35,13 @@
             path:'/admin/echarts/line',
            }
         ]
-     }    
+     },
+     {
+      name:'用户管理',
+      key:'5',
+      path:'/admin/user',
+   }
+       
     
     ]
  }
