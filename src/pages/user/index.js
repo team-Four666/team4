@@ -69,20 +69,19 @@ class User extends Component{
         this.$axios.post(`/hehe/admin/food/findByTypePage?page=${page}&pageSize=${pageSize}`)                
         .then((data)=>{
             // console.log(data)
-                if(data.err){
-                    this.setState({dataSource:data.data.list,total:data.count})  
-                }
+                
+                    this.setState({dataSource:data.list,total:data.count})  
+                
         })
     }
     componentDidMount(){
         let {page,pageSize} = this.state
         this.initData(page,pageSize)
     }
-
     render(){
         let {total,pageSize} = this.state
         return( 
-            <Card className='user-container'>1
+            <Card className='user-container'>
                 <Table dataSource={this.state.dataSource}
                  className="test"
                  columns={this.columns}

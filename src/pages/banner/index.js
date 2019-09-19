@@ -1,13 +1,11 @@
 import React,{Component} from 'react'
-class Cart extends Component{
+class Login extends Component{
     render(){
         return(
             <div>
-                这里是购物车管理页面
+                这里是banner页面
             </div>
         )
     }
 }
-
-export default Cart
-
+export default Login

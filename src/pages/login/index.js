@@ -6,15 +6,29 @@ class Login extends Component{
     login=()=>{
     //   let result =this.props.form.getFieldsValue()
       this.props.form.validateFields((err,data)=>{
-        console.log(err,data)
+        // console.log(err,data)
         if(err){
-            message.error('输入信息有误')
+            //前端验证有误
+            message.error('输入信息有误',1)
         }else{
-
+            //前端验证调用ajax接口
+            this.$axios.get(`/hehe/admin/user/login?us=${data.us}&ps=${data.ps}`)
+            .then((data)=>{
+                if(data.err === 0){
+                    localStorage.setItem('token',data.token)
+                    message.success('登录ok，一秒后回到首页',2,()=>{
+                        this.props.history.push('/admin/hom')
+                    })
+                }else{
+                   message.error(data.msg) 
+                }
+            })
+           
         }
-      })
-    //   console.log(result)
-    }
+    })
+
+}
+    
     render(){
         // console.log('login',this)
         const { getFieldDecorator } = this.props.form
