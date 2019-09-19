@@ -79,6 +79,7 @@ class User extends Component{
         this.initData(page,pageSize)
     }
     render(){
+
         let {total,pageSize} = this.state
         return( 
             <Card className='user-container'>
@@ -90,6 +91,8 @@ class User extends Component{
                 />
                 <Pagination simple defaultCurrent={1} total={total} pageSize={pageSize} onChange={this.pageChange}/>
             </Card>
+
+        
         )
     }
 }
