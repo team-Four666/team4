@@ -89,7 +89,6 @@ module.exports = function(proxy, allowedHost) {
           '^/hehe':''
         }
       },
- 
     },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {

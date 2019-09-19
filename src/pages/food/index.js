@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Card,Table,Button} from 'antd'
-import foodDate from './foodDate'
+// import foodDate from './foodDate'
 
 import './index.less'
 class Food extends Component{
@@ -62,23 +62,34 @@ class Food extends Component{
             }
           },
       ]
-    componentDidMount(){
-        setTimeout(()=>{
-            this.setState({dataSource:foodDate})
-        },500)
+    // componentDidMount(){
+    //     setTimeout(()=>{
+    //         this.setState({dataSource:foodDate})
+    //     },500)
         
-    }
-    // initData=()=>{
-    //     this.$axios.post('/hehe/admin/food/findByTypePage',{page:1})
+    // }
+    initData=()=>{
+        this.$axios.post('/hehe/admin/food/findByTypePage',{page:1})
                            
+        .then((data)=>{
+            console.log(data)
+                this.setState({dataSource:data.list})  
+        })
+    }
+    componentDidMount(){
+        this.initData()
+    }
+
+    // initData=()=>{
+    //     this.$axios.post('/hehe/admin/food/findByTypePage',{page:1,pageSize:4,})
     //     .then((data)=>{
     //         console.log(data)
-    //             this.setState({dataSource:data.data.list})  
     //     })
     // }
     // componentDidMount(){
     //     this.initData()
     // }
+
     render(){
         return( 
             <Card className='food-container'>
