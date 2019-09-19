@@ -83,16 +83,9 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy:{
       '/hehe':{
-        target:'http://www.abdiy.com',
+        target:'http://10.9.22.226:8080',
         changeDrigin:true,
-        pathRewriter:{
-          '^/hehe':''
-        }
-      },
-      '/hehe':{
-        target:'http://www.abdiy.com',
-        changeDrigin:true,
-        pathRewriter:{
+        pathRewrite:{
           '^/hehe':''
         }
       }
