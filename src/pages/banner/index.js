@@ -3,7 +3,7 @@ class Login extends Component{
     render(){
         return(
             <div>
-                购物车
+                这里是banner页面
             </div>
         )
     }
