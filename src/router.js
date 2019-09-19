@@ -8,6 +8,7 @@ import Food from 'pages/food'
 import User from 'pages/user'
 import Cart from 'pages/cart'
 import Banner from 'pages/banner'
+
 class RootRouter extends Component{
     render(){
         return(
@@ -15,7 +16,7 @@ class RootRouter extends Component{
                 <HashRouter>
                    <Tokenmodel></Tokenmodel>
                     <Switch>
-                        <Redirect exact from='/' to='/admin'></Redirect>
+                        <Redirect exact from='/' to='/login'></Redirect>
                         <Route path='/admin' render={()=>{
                             return(
                                 <Admin>
