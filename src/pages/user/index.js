@@ -1,18 +1,19 @@
 import React,{Component} from 'react'
 import {Card,Table,Button,Pagination} from 'antd'
 import './index.less'
+import qs from 'qs';
 class User extends Component{
     constructor(){
         super()
         this.state={
             dataSource:[],
             page:1,
-            pageSize:3,    
-            total:0      
+            pageSize:3,  
+            total:10
         }
     }
     columns = [
-        {
+          { 
             title: '名称  ',
             dataIndex: 'name',
             key: 'name',
@@ -60,18 +61,16 @@ class User extends Component{
                 )
             }
           },
-      ]
+      ];
       pageChange=(page,pageSize)=>{
         console.log('页面改变',page,pageSize)
         this.initData(page,this.state.pageSize)
       }
       initData=(page,pageSize)=>{
-        this.$axios.post(`/hehe/admin/food/findByTypePage?page=${page}&pageSize=${pageSize}`)                
+        this.$axios.post('/hehe/admin/food/findByTypePage',qs.stringify({ page: page,pageSize:pageSize}))
         .then((data)=>{
             // console.log(data)
-                
-                    this.setState({dataSource:data.list,total:data.count})  
-                
+            this.setState({dataSource:data.list})  
         })
     }
     componentDidMount(){
@@ -87,7 +86,7 @@ class User extends Component{
                  className="test"
                  columns={this.columns}
                  scroll={ { x:1500,y : 400}}
-                 pogination={false}
+                 pagination={false}
                 />
                 <Pagination simple defaultCurrent={1} total={total} pageSize={pageSize} onChange={this.pageChange}/>
             </Card>
