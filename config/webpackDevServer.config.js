@@ -83,19 +83,13 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy:{
       '/hehe':{
-        target:'http://www.abdiy.com',
+        target:'http://10.9.22.226:8080',
         changeDrigin:true,
-        pathRewriter:{
+        pathRewrite:{
           '^/hehe':''
         }
       },
-      '/hehe':{
-        target:'http://www.abdiy.com',
-        changeDrigin:true,
-        pathRewriter:{
-          '^/hehe':''
-        }
-      }
+ 
     },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
