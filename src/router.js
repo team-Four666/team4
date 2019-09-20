@@ -5,7 +5,8 @@ import App from './App'
 import Login from 'pages/login'
 import Admin from 'pages/admin'
 import Food from 'pages/food'
-import User from 'pages/user'
+import UserList from 'pages/user'
+import UserAdd from 'pages/useradd'
 import Cart from 'pages/cart'
 import Banner from 'pages/banner'
 
@@ -21,7 +22,8 @@ class RootRouter extends Component{
                             return(
                                 <Admin>
                                       <Route path='/admin/food' component={Food}></Route>
-                                      <Route path='/admin/user' component={User}></Route>
+                                      <Route path='/admin/user/list' component={UserList}></Route>
+                                      <Route path='/admin/user/add' component={UserAdd}></Route>
                                       <Route path='/admin/cart' component={Cart}></Route>
                                       <Route path='/admin/banner' component={Banner}></Route>
                                 </Admin>

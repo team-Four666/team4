@@ -16,7 +16,7 @@ class Login extends Component{
             .then((data)=>{
                 if(data.err === 0){
                     localStorage.setItem('token',data.token)
-                    message.success('登录ok，一秒后回到首页',2,()=>{
+                    message.success('登录ok，一秒后回到首页',0.1,()=>{
                         this.props.history.push('/admin/hom')
                     })
                 }else{
