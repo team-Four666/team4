@@ -8,6 +8,18 @@
         name:'商品管理',
         key:'1',
         path:'/admin/food',
+        children:[
+            {
+               name:'商品列表',
+               key:'1-0',
+               path:'/admin/food/list',
+            },
+            {
+               name:'商品添加',
+               key:'1-1',
+               path:'/admin/food/add',
+            },
+        ]
      },
      {
       name:'广告位管理',

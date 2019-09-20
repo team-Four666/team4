@@ -74,12 +74,7 @@ class Food extends Component{
             }
           },
       ]
-    // componentDidMount(){
-    //     setTimeout(()=>{
-    //         this.setState({dataSource:foodDate})
-    //     },500)
-        
-    // }
+
     confirmDel=(_id)=>{
         console.log(_id)  
         let {page,pageSize}=this.state
@@ -91,16 +86,7 @@ class Food extends Component{
             }else{
                 message.error('删除失败请重试')
             }
-        })
-       
-        
-        // setTimeout(()=>{
-            
-                
-           
-        // },200)
-         
-        
+        })    
     }
     
     pageChange=(page,pageSize)=>{

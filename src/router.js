@@ -4,7 +4,8 @@ import Tokenmodel from 'components/tokenModel'
 import App from './App' 
 import Login from 'pages/login'
 import Admin from 'pages/admin'
-import Food from 'pages/food'
+import FoodList from 'pages/foodList'
+import FoodAdd from 'pages/foodAdd'
 import User from 'pages/user'
 import Cart from 'pages/cart'
 import Banner from 'pages/banner'
@@ -20,7 +21,8 @@ class RootRouter extends Component{
                         <Route path='/admin' render={()=>{
                             return(
                                 <Admin>
-                                      <Route path='/admin/food' component={Food}></Route>
+                                      <Route path='/admin/food/list' component={FoodList}></Route>
+                                      <Route path='/admin/food/add' component={FoodAdd}></Route>
                                       <Route path='/admin/user' component={User}></Route>
                                       <Route path='/admin/cart' component={Cart}></Route>
                                       <Route path='/admin/banner' component={Banner}></Route>
