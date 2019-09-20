@@ -7,6 +7,8 @@ import Admin from 'pages/admin'
 import Food from 'pages/food'
 import UserList from 'pages/user'
 import UserAdd from 'pages/useradd'
+// import UploadFile from 'pages/foodadd/upload_file.js'
+// import UploadBase from 'pages/foodadd/upload_base64.js'
 import Cart from 'pages/cart'
 import Banner from 'pages/banner'
 
@@ -24,6 +26,8 @@ class RootRouter extends Component{
                                       <Route path='/admin/food' component={Food}></Route>
                                       <Route path='/admin/user/list' component={UserList}></Route>
                                       <Route path='/admin/user/add' component={UserAdd}></Route>
+                                      {/* <Route path='/admin/user/file' component={UploadFile}></Route>
+                                      <Route path='/admin/user/base64' component={UploadBase}></Route> */}
                                       <Route path='/admin/cart' component={Cart}></Route>
                                       <Route path='/admin/banner' component={Banner}></Route>
                                 </Admin>
