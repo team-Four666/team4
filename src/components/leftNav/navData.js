@@ -53,6 +53,28 @@
       name:'用户管理',
       key:'5',
       path:'/admin/user',
+      children:[
+         {
+            name:'商品列表',
+            path:'/admin/user/list',
+            key:'5-0'
+         },
+         {
+            name:'商品添加',
+            path:'/admin/user/add',
+            key:'5-1'
+         },
+         {
+            name:'商品上传file',
+            path:'/admin/user/file',
+            key:'5-2'
+         },
+         {
+            name:'商品上传base64',
+            path:'/admin/user/base64',
+            key:'5-3'
+         }
+      ]
    }
        
     
