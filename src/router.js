@@ -8,7 +8,8 @@ import Food from 'pages/food'
 import User from 'pages/user'
 import Cart from 'pages/cart'
 import Banner from 'pages/banner'
-
+import Pie from 'pages/echarts/pie'
+import Line from 'pages/echarts/line'
 class RootRouter extends Component{
     render(){
         return(
@@ -24,6 +25,8 @@ class RootRouter extends Component{
                                       <Route path='/admin/user' component={User}></Route>
                                       <Route path='/admin/cart' component={Cart}></Route>
                                       <Route path='/admin/banner' component={Banner}></Route>
+                                      <Route path='/admin/echarts/pie' component={Pie}></Route>
+                                      <Route path='/admin/echarts/line' component={Line}></Route>
                                 </Admin>
                             )
                         }}></Route>
