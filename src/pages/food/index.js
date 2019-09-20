@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Card,Table,Button,Pagination} from 'antd'
+import {Card,Table,Button,Pagination,Spin} from 'antd'
 // import foodDate from './foodDate'
 import './index.less'
 const qs = require('qs');
@@ -9,8 +9,9 @@ class Food extends Component{
         this.state={
             dataSource:[],
             page:1,
-            pageSize:3,
-            total:10
+            pageSize:4,
+            total:10,
+            loading:true
                       
         }
     }
@@ -77,10 +78,11 @@ class Food extends Component{
     }
 
     initData=(page,pageSize)=>{ 
+        this.setState({loading:true}) 
         this.$axios.post('/hehe/admin/food/findByTypePage',qs.stringify({page:page,pageSize:pageSize}))                    
         .then((data)=>{
             console.log(data)
-                this.setState({dataSource:data.list})  
+                this.setState({dataSource:data.list,loading:false})  
         })
     }
     componentDidMount(){
@@ -89,15 +91,19 @@ class Food extends Component{
     }
 
     render(){
-        let {total,pageSize}=this.state
+        let {total,pageSize,loading}=this.state
         return( 
             <Card className='food-container'>
-                <Table dataSource={this.state.dataSource} 
-                       className='test'
-                       columns={this.columns} 
-                       scroll={{x:1500,y:400}}
-                       pagination={false}
-                       />
+                <Spin tip='数据加载ing'
+                      spinning={loading}
+                >
+                    <Table dataSource={this.state.dataSource} 
+                        className='test'
+                        columns={this.columns} 
+                        scroll={{x:1500,y:400}}
+                        pagination={false}
+                        />
+                </Spin>
                 <Pagination simple defaultCurrent={1} total={total} pageSize={pageSize} onChange={this.pageChange}/>
             </Card> 
         )
