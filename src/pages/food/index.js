@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Card,Table,Button,Pagination,Spin} from 'antd'
+import {Card,Table,Button,Pagination,Spin,Popconfirm, message} from 'antd'
 // import foodDate from './foodDate'
 import './index.less'
 const qs = require('qs');
@@ -31,11 +31,12 @@ class Food extends Component{
           },
           {
             title: '图片',
-            dataIndex: 'imgPath', 
-            key: 'imgPath',
+            dataIndex: 'img', 
+            key: 'img',
             width:200,
             render(data){
-                return(<img width='80px' src='http://n.sinaimg.cn/sinacn15/224/w640h384/20180520/1b6d-haturft2415067.jpg'/>)
+                // return(<img width='80px' src='http://n.sinaimg.cn/sinacn15/224/w640h384/20180520/1b6d-haturft2415067.jpg'/>)
+                return(<img width='100px' width='100px' src={data}/>)
             }
           },
           {
@@ -56,11 +57,18 @@ class Food extends Component{
             key: 'action',
             width:200,
             fixed:'right',
-            render(a,b){
+            render:(text,record)=>{
+                // console.log('删除数据',a,b)
                 return(
                     <div>
                         <Button type='primary' size='small'>修改</Button>
-                        <Button type='danger' size='small'>删除</Button>
+                        <Popconfirm title='确认要删除吗'
+                        // 
+                        onConfirm={this.confirmDel.bind(this,record._id)}
+                        >
+                            <Button type='danger' size='small'>删除</Button>
+                        </Popconfirm>
+                        
                     </div>
                 )
             }
@@ -72,8 +80,32 @@ class Food extends Component{
     //     },500)
         
     // }
+    confirmDel=(_id)=>{
+        console.log(_id)  
+        let {page,pageSize}=this.state
+        this.$axios.post('/hehe/admin/food/del',qs.stringify({_id:_id})) 
+        .then((data)=>{
+            if(data.err==0){
+                message.success('删除ok')
+                this.initData(page,pageSize)
+            }else{
+                message.error('删除失败请重试')
+            }
+        })
+       
+        
+        // setTimeout(()=>{
+            
+                
+           
+        // },200)
+         
+        
+    }
+    
     pageChange=(page,pageSize)=>{
         // console.log('页码改变',page,pageSize)
+        this.setState({page:page})
         this.initData(page,this.state.pageSize)
     }
 
