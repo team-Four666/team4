@@ -51,6 +51,16 @@
             name:'商品添加',
             path:'/admin/user/add',
             key:'5-1'
+         },
+         {
+            name:'商品上传file',
+            path:'/admin/user/file',
+            key:'5-2'
+         },
+         {
+            name:'商品上传base64',
+            path:'/admin/user/base64',
+            key:'5-3'
          }
       ]
    }
