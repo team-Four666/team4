@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Card ,Button, message} from 'antd'
-// import qs from 'qs'
+import qs from 'qs'
 
 class UserAdd extends Component{
     constructor(){
@@ -15,7 +15,7 @@ class UserAdd extends Component{
         let config = {
             headers:{'Content-Type':'multipart/form-data'}
         };
-        this.$axios.post('/hehe/admin/food/add',formData,config)
+        this.$axios.post('/hehe/admin/file/upload',qs.stringify({formData,config}))
         .then((res)=>{
             console.log(res)
         })
