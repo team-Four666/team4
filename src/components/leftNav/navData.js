@@ -19,6 +19,21 @@
                key:'1-1',
                path:'/admin/food/add',
             },
+            {
+               name:'文件上传file',
+               key:'1-2',
+               path:'/admin/food/f_file',
+            },
+            {
+               name:'文件上传base',
+               key:'1-3',
+               path:'/admin/food/f_base64',
+            },
+            {
+               name:'文件上传antd',
+               key:'1-4',
+               path:'/admin/food/f_antd',
+            },
         ]
      },
      {

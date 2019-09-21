@@ -9,8 +9,8 @@ class Food extends Component{
         this.state={
             dataSource:[],
             page:1,
-            pageSize:4,
-            total:10,
+            pageSize:3,
+            total:0,
             loading:true
                       
         }
@@ -36,7 +36,7 @@ class Food extends Component{
             width:200,
             render(data){
                 // return(<img width='80px' src='http://n.sinaimg.cn/sinacn15/224/w640h384/20180520/1b6d-haturft2415067.jpg'/>)
-                return(<img width='100px' width='100px' src={data}/>)
+                return(<img height='80px;' width='100px' src={data}/>)
             }
           },
           {
@@ -100,7 +100,7 @@ class Food extends Component{
         this.$axios.post('/hehe/admin/food/findByTypePage',qs.stringify({page:page,pageSize:pageSize}))                    
         .then((data)=>{
             console.log(data)
-                this.setState({dataSource:data.list,loading:false})  
+                this.setState({dataSource:data.list,loading:false,total:data.total})  
         })
     }
     componentDidMount(){

@@ -7,7 +7,10 @@ import Admin from 'pages/admin'
 
 import FoodList from 'pages/foodList'
 import FoodAdd from 'pages/foodAdd'
-
+import FupaloadFile from 'pages/foodAdd/f_upload_file.js'
+import FupaloadBase64 from 'pages/foodAdd/f_upload_base64.js'
+import FupaloadAntd from 'pages/foodAdd/f_upload_antd.js'
+ 
 import UserList from 'pages/user'
 import UserAdd from 'pages/useradd'
 import UploadFile from 'pages/useradd/upload_file.js'
@@ -31,7 +34,10 @@ class RootRouter extends Component{
 
                                       <Route path='/admin/food/list' component={FoodList}></Route>
                                       <Route path='/admin/food/add' component={FoodAdd}></Route>
-                                      
+                                      <Route path='/admin/food/f_file' component={FupaloadFile}></Route>
+                                      <Route path='/admin/food/f_base64' component={FupaloadBase64}></Route>
+                                      <Route path='/admin/food/f_antd' component={FupaloadAntd}></Route>
+
 
                                       
                                       <Route path='/admin/user/list' component={UserList}></Route>

@@ -48,21 +48,26 @@ class Login extends Component{
                     )}
                 </Form.Item>
                 <Form.Item>
-                    {getFieldDecorator('ps',{})(
+                    {getFieldDecorator('ps',{
+                         rules: [{ required: true, message: '请输入密码' },
+                         { max: 8, message: '最多输入八个字符' },
+                         { min: 3, message: '最少输入为三个字符' },
+                        ],
+                    })(
                         <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                         placeholder="Username"/>
                     )}
                 </Form.Item>
                 <Form.Item>
                     <a className="login-form-forgot" href="">
-                        Forgot password
+                        {/* Forgot password */}
                     </a>
                     <Button type="primary"
                      onClick={this.login}
                      htmlType="submit" className="login-form-button">   
                         Log in
                     </Button>
-                    Or <a href="">register now!</a>
+                    {/* Or <a href="">register now!</a> */}
                 </Form.Item>
             </Card>
         ) 

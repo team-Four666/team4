@@ -1,27 +1,48 @@
 import React,{Component} from 'react'
 import {Card,Button, message} from 'antd'
 import qs from 'qs'
+import './index.less'
 class FoodAdd extends Component{
     constructor(){
         super()
         this.state={
             name:'',
             foodtype:'热菜',
-            img:'132',
+            img:'',
             desc:'',
             price:''
         }
     }
     submit=()=>{
         let {name,foodtype,img,desc,price}=this.state
-        console.log(name,foodtype,img,desc,price)
-        let query=qs.stringify({name,foodtype,img,desc,price})
-        this.$axios.post('/hehe/admin/food/add',query)
-        .then((data)=>{
-            if(data.err==0){
-                message.success('add ok')
-            }
-        })
+        console.log({name,foodtype,img,desc,price})
+        if(img!==''){ 
+            let query=qs.stringify({name,foodtype,img,desc,price})
+            this.$axios.post('/hehe/admin/food/add',query)
+            .then((data)=>{
+                if(data.err==0){
+                    message.success('add ok')
+                }
+            })
+        }else{
+            message.error('请先上传图片')
+        }
+        // let query=qs.stringify({name,foodtype,img,desc,price})
+        // this.$axios.post('/hehe/admin/food/add',query)
+        // .then((data)=>{
+        //     if(data.err==0){
+        //         message.success('add ok')
+        //     }
+        // })
+    }
+    upload=()=>{
+        let file = this.refs.file.files[0]
+        var r =new FileReader();
+        r.onload=()=>{
+            console.log(r.result);
+            this.setState({img:r.result})
+        }
+        r.readAsDataURL(file);
     }
     render(){
         let {name,foodtype,img,desc,price}=this.state
@@ -39,7 +60,10 @@ class FoodAdd extends Component{
                      <option>特色菜</option>
                  </select><br/>
                 
-               <span>图片:</span> <input type='file'/><br/>
+               <span>图片:</span> <input type='file' ref='file'/><br/>
+               <Button onClick={this.upload}>上传</Button><br/>
+               <img src={img} width='100px' height='100px' alt=''/><br/>
+                
                 <span>描述:</span> <input type='text' value={desc} onChange={(e)=>{
                     this.setState({desc:e.target.value})
                 }}/><br/>
